@@ -20,27 +20,76 @@ export default function AddProduct() {
   }
 
   return (
-    <div>
-      <Navbar />
-      <h2 style={{margin:20}}>Add Product</h2>
+    <div className="min-h-screen bg-gray-100">
+      <Navbar/>
 
-      <form onSubmit={submit} style={{padding:20}}>
-        <input placeholder="Name" required
-          onChange={e=>setForm({...form,name:e.target.value})}/> <br/><br/>
+      <div className="max-w-lg mx-auto mt-12 bg-white shadow-lg rounded-xl p-8">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Add New Product</h2>
 
-        <input placeholder="SKU" required
-          onChange={e=>setForm({...form,sku:e.target.value})}/> <br/><br/>
+        <form onSubmit={submit} className="space-y-5">
 
-        <input type="number" placeholder="Quantity" required
-          onChange={e=>setForm({...form,quantity:e.target.value})}/> <br/><br/>
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">Product Name</label>
+            <input
+              required
+              placeholder="Enter product name"
+              onChange={e=>setForm({...form,name:e.target.value})}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                         focus:ring-blue-500 placeholder:text-gray-400 text-gray-600"
+            />
+          </div>
 
-        <input type="number" placeholder="Reorder Level (default 5)"
-          onChange={e=>setForm({...form,reorderLevel:e.target.value})}/> <br/><br/>
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">SKU</label>
+            <input
+              required
+              placeholder="Unique SKU code"
+              onChange={e=>setForm({...form,sku:e.target.value})}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                         focus:ring-blue-500 placeholder:text-gray-400 text-gray-600"
+            />
+          </div>
 
-        <button type="submit" style={{padding:10,background:"black",color:"white"}}>
-          Add Product
-        </button>
-      </form>
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">Quantity</label>
+            <input
+              required
+              type="number"
+              placeholder="Available quantity"
+              onChange={e=>setForm({...form,quantity:e.target.value})}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                         focus:ring-blue-500 placeholder:text-gray-400 text-gray-600"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 font-medium mb-1">Reorder Level</label>
+            <input
+              type="number"
+              defaultValue={5}
+              placeholder="Default is 5"
+              onChange={e=>setForm({...form,reorderLevel:e.target.value})}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                         focus:ring-blue-500 placeholder:text-gray-400 text-gray-600"
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold 
+                       hover:bg-green-700 transition cursor-pointer">
+            Add Product
+          </button>
+
+          <button 
+            type="button"
+            onClick={()=>router.push("/")}
+            className="w-full text-gray-100 font-bold hover:bg-red-600 cursor-pointer bg-red-500 py-3 rounded-lg">
+            Cancel
+          </button>
+
+        </form>
+      </div>
     </div>
   );
 }
