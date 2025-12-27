@@ -1,5 +1,6 @@
 import Product from "../models/Product.js";
 import Supplier from "../models/Supplier.js";
+import { sendAlert } from "../config/mailer.js";
 
 // Create product
 export const createProduct = async (req, res) => {
