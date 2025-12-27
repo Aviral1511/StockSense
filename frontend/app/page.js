@@ -133,7 +133,7 @@ const [filter, setFilter] = useState("all");
                           className="px-3 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition cursor-pointer">
                           Edit
                         </Link>
-                        <Link href={`/view/${p._id}`}
+                        <Link href={`/product/${p._id}`}
                           className="px-3 py-2 bg-gray-600 text-white text-sm rounded-lg hover:bg-gray-700 transition cursor-pointer">
                           View
                         </Link>

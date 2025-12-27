@@ -33,6 +33,9 @@ export default function Navbar() {
                 <Link href="/suppliers" className={linkStyle("/suppliers")}>
                     Suppliers
                 </Link>
+                <Link href="/analytics" className={linkStyle("/analytics")}>
+                    Analytics
+                </Link>
             </div>
         </nav>
     );
