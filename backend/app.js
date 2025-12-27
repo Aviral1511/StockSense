@@ -11,9 +11,8 @@ const app = express();
 // Middlewares
 app.use(cors({
   origin: [
-    "*",
+      "https://stock-sense-jz9yta5dj-aviral1511s-projects.vercel.app",   // your vercel domain
     "https://stock-sense-aviral.vercel.app/",
-    // "https://stock-sense-jz9yta5dj-aviral1511s-projects.vercel.app",   // your vercel domain
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
