@@ -30,6 +30,9 @@ export default function Navbar() {
                 <Link href="/low-stock" className={linkStyle("/low-stock")}>
                     Low Stock
                 </Link>
+                <Link href="/suppliers" className={linkStyle("/suppliers")}>
+                    Suppliers
+                </Link>
             </div>
         </nav>
     );

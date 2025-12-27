@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import productRoutes from './routes/productRoutes.js';
+import supplierRoutes from './routes/supplierRoutes.js';
 import connectDB from './config/db.js';
 
 dotenv.config();
@@ -16,6 +17,7 @@ connectDB();
 
 // Routes
 app.use('/api/products', productRoutes);
+app.use('/api/suppliers', supplierRoutes);
 
 // Server
 const PORT = process.env.PORT || 5000;

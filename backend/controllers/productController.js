@@ -1,4 +1,5 @@
 import Product from "../models/Product.js";
+import Supplier from "../models/Supplier.js";
 
 // Create product
 export const createProduct = async (req, res) => {
@@ -21,13 +22,18 @@ export const getProducts = async (req, res) => {
 };
 
 // Update product
-export const updateProduct = async (req, res) => {
+export const updateProduct = async(req,res)=>{
     try {
-        const product = await Product.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { new: true }
-        );
+        const product = await Product.findByIdAndUpdate(req.params.id, req.body,{ new: true });
+
+        // check stock drop
+        if(product.quantity <= product.reorderLevel){
+           const suppliers = await Supplier.find({products:product._id});
+           suppliers.forEach(s=>{
+             if(s.contact.includes("@")) sendAlert(s.contact,product);
+           });
+        }
+        
         res.json(product);
     } catch (err) {
         res.status(500).json({ error: err.message });
