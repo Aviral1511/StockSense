@@ -34,14 +34,14 @@ export default function Suppliers(){
 
             <input
               value={name}
-              className="border px-3 py-2 w-full rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="border px-3 py-2 w-full rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400 text-gray-600"
               placeholder="Supplier Name"
               onChange={e=>setName(e.target.value)}
             />
 
             <input
               value={contact}
-              className="border px-3 py-2 w-full rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="border px-3 py-2 w-full rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder:text-gray-400 text-gray-600"
               placeholder="Contact (Phone / Email)"
               onChange={e=>setContact(e.target.value)}
             />
