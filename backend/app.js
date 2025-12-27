@@ -10,12 +10,20 @@ const app = express();
 
 // Middlewares
 app.use(cors({
-  origin: [
-    "*",
-    //   "https://stock-sense-jz9yta5dj-aviral1511s-projects.vercel.app",   // your vercel domain
-    // "https://stock-sense-aviral.vercel.app/",
-  ],
+  origin: (origin, callback) => {
+    // Allow localhost (dev) & any vercel.app domain
+    if (
+      !origin || 
+      origin.includes("localhost") ||
+      origin.endsWith(".vercel.app")
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 
 app.use(express.json());
